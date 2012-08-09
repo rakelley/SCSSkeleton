@@ -1,0 +1,64 @@
+/*
+* SCSSkeleton v1.2
+* Written by Ryan Kelley
+* 8/8/2012
+* 
+* Derived From:
+* 
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+
+/* #Page Styles
+================================================== */
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+	@media #{$media-subbase} {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media #{$media-tablet} {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media #{$media-phones} {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media #{$media-phoneLand} {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media #{$media-phonePort} {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+/*	@font-face {
+	    font-family: 'FontName';
+	    src: url('../fonts/FontName.eot');
+	    src: url('../fonts/FontName.eot?iefix') format('eot'),
+	         url('../fonts/FontName.woff') format('woff'),
+	         url('../fonts/FontName.ttf') format('truetype'),
+	         url('../fonts/FontName.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+*/

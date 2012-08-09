@@ -1,0 +1,200 @@
+/*
+* SCSSkeleton v1.2
+* Written by Ryan Kelley
+* 8/8/2012
+* 
+* Derived From:
+* 
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Contents
+==================================================
+    #Grid Mixins
+    #Configuration Variables
+    #Media Queries
+    #Clearing */
+
+
+
+/* #Grid Mixins
+================================================== */
+
+/* Standard Grid with Variable-Width Columns */
+@mixin skeleton($column, $gutter) {
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+
+  &.one { width: $column; }
+  &.two { width: $column * 2 + $gutter; }
+  &.three { width: $column * 3 + $gutter * 2; }
+  &.four { width: $column * 4 + $gutter * 3; }
+  &.five { width: $column * 5 + $gutter * 4; }
+  &.six { width: $column * 6 + $gutter * 5; }
+  &.seven { width: $column * 7 + $gutter * 6; }
+  &.eight { width: $column * 8 + $gutter * 7; }
+  &.nine { width: $column * 9 + $gutter * 8; }
+  &.ten { width: $column * 10 + $gutter * 9; }
+  &.eleven { width: $column * 11 + $gutter * 10; }
+  &.twelve { width: $column * 12 + $gutter * 11; }
+  &.thirteen { width: $column * 13 + $gutter * 12; }
+  &.fourteen { width: $column * 14 + $gutter * 13; }
+  &.fifteen { width: $column * 15 + $gutter * 14; }
+  &.sixteen { width: $column * 16 + $gutter * 15; }
+
+  &.one-third { width: ($column * 16 + $gutter * 13) / 3; }
+  &.two-thirds { width: ($column * 16 + $gutter * 13) * (2 / 3) + $gutter; }
+
+  &.offset-by-one { padding-left: $column + $gutter; }
+  &.offset-by-two { padding-left: ($column + $gutter) * 2; }
+  &.offset-by-three { padding-left: ($column + $gutter) * 3; }
+  &.offset-by-four { padding-left: ($column + $gutter) * 4; }
+  &.offset-by-five { padding-left: ($column + $gutter) * 5; }
+  &.offset-by-six { padding-left: ($column + $gutter) * 6; }
+  &.offset-by-seven { padding-left: ($column + $gutter) * 7; }
+  &.offset-by-eight { padding-left: ($column + $gutter) * 8; }
+  &.offset-by-nine { padding-left: ($column + $gutter) * 9; }
+  &.offset-by-ten { padding-left: ($column + $gutter) * 10; }
+  &.offset-by-eleven { padding-left: ($column + $gutter) * 11; }
+  &.offset-by-twelve { padding-left: ($column + $gutter) * 12; }
+  &.offset-by-thirteen { padding-left: ($column + $gutter) * 13; }
+  &.offset-by-fourteen { padding-left: ($column + $gutter) * 14; }
+  &.offset-by-fifteen { padding-left: ($column + $gutter) * 15; }
+}
+
+/* Grid with Fixed-Width Columns for Small Screens */
+@mixin phone-skeleton($width) {
+  margin-left: 0;
+  margin-right: 0;
+  
+  &.one,&.two,&.three,&.four,&.five,&.six,&.seven,&.eight,&.nine,&.ten,&.eleven,&.twelve,
+  &.thirteen,&.fourteen,&.fifteen,&.sixteen,&.one-third,&.two-thirds { width: $width; }
+
+  &.offset-by-one,&.offset-by-two,&.offset-by-three,&.offset-by-four,&.offset-by-five,
+  &.offset-by-six,&.offset-by-seven,&.offset-by-eight,&.offset-by-nine,&.offset-by-ten,
+  &.offset-by-eleven,&.offset-by-twelve,&.offset-by-thirteen,&.offset-by-fourteen,
+  &.offset-by-fifteen { padding-left: 0; }
+}
+
+
+/* #Configuration Variables
+================================================== */
+/**
+ * Use these variables to define the width breakpoints and column, gutter, and container sizes for the existing grid rulesets.
+ * The default values are identical to the queries used in the base version of Skeleton.
+ *
+ * @param sk_smurf                    min screen width for smurf ruleset
+ * @param smurf_max         optional  max screen width for smurf ruleset
+ * @param smurf_container             container width for smurf ruleset, should be equal to column * 16 + gutter * 16
+ * @param smurf_column      optional  column width for smurf ruleset (if unset, must use phone-grid in _skeleton.scss)
+ * @param smurf_gutter      optional  gutter width for smurf ruleset (if unset, must use phone-grid in _skeleton.scss)
+ * @param media-smurf                 used when calling smurf ruleset with a media query, usage @media #{$media-smurf} { css }
+ * 
+ */
+
+/* Base Grid  */
+  $sk_base: 960px;
+  $sk_base_container: $sk_base;
+  $sk_base_column: 40px;
+  $sk_base_gutter: 20px;
+  $media-base: "screen and (min-width: #{$sk_base})";
+
+/* Portrait Tablet Grid */
+  $sk_tablet: 768px;
+  $sk_tablet_max: $sk_base - 1;
+  $sk_tablet_container: $sk_tablet;
+  $sk_tablet_column: 28px;
+  $sk_tablet_gutter: 20px;
+  $media-tablet: "screen and (min-width: #{$sk_tablet}) and (max-width: #{$sk_tablet_max})";
+
+/* Landscape Phone Grid */
+  $sk_phoneLand: 480px;
+  $sk_phoneLand_max: $sk_tablet - 1;
+  $sk_phoneLand_container: $sk_phoneLand - 60;
+  $media-phoneLand: "screen and (min-width: #{$sk_phoneLand}) and (max-width: #{$sk_phoneLand_max})";
+
+/* Portrait Phone Grid */
+  $sk_phonePort: $sk_phoneLand - 1;
+  $sk_phonePort_container: $sk_phonePort - 179;
+  $media-phonePort: "screen and (max-width: #{$sk_phonePort})";
+
+/* Additional Media Query Shorthand Variables */
+  $media-nophones: "screen and (min-width: #{$sk_tablet})";
+  $media-phones: "screen and (max-width: #{$sk_phoneLand_max})";
+  $media-subbase: "screen and (max-width: #{$sk_tablet_max})";
+
+/* Optional Wide Grid
+ *
+ * Included as an example of how you can easily expand upon the existing rulesets through this mixin-based model.
+ * Uncomment these variables and the Wide grid query on lines 171-176 to use.
+ * 
+ * @param sk_wide_maxwidth            max width the container will expand to
+ */
+/*  $sk_wide: 1333px;
+  $sk_wide_container: 90%;
+  $sk_wide_column: 4.25%;
+  $sk_wide_gutter: 2%;
+  $sk_wide_maxwidth: 1680px;
+  $media-wide: "screen and (min-width: #{$sk_wide})";*/
+
+
+/* #Media Queries
+================================================== */
+.container { 
+    width: $sk_base_container;
+    .column,.columns { 
+        float: left; 
+        display: inline; 
+        &.alpha { margin-left: 0; }
+        &.omega { margin-right: 0; }
+        @include skeleton($sk_base_column, $sk_base_gutter);
+    }
+    @media #{$media-tablet} { 
+        width: $sk_tablet_container; 
+        .column,.columns { @include skeleton($sk_tablet_column, $sk_tablet_gutter); }
+    }
+    @media #{$media-phoneLand} { 
+        width: $sk_phoneLand_container; 
+        .column,.columns { @include phone-skeleton($sk_phoneLand_container); }
+    }
+    @media #{$media-phonePort} { 
+        width: $sk_phonePort_container; 
+        .column,.columns { @include phone-skeleton($sk_phonePort_container); }
+    }
+
+/* Optional Wide-Width Grid */
+/*    @media #{$media-wide} { 
+        width: $sk_wide_container;
+        max-width: $sk_wide_maxwidth;
+        .column,.columns { @include skeleton($sk_wide_column, $sk_wide_gutter); }
+    }*/
+
+}
+
+
+/* #Clearing
+================================================== */
+    @mixin clearfix { 
+        zoom: 1;
+        &:before,&:after { content: " "; display: table; } 
+        &:after { clear: both; }
+    }
+
+    /* Self Clearing Goodness */
+    .container { @include clearfix; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .row,.clearfix { @include clearfix; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: table;
+    }
