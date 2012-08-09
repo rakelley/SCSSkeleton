@@ -2,6 +2,7 @@
 
 `SCSSkeleton` is a SCSS rewrite of the Skeleton fluid grid CSS framework - www.getskeleton.com
 
+
 ## Features
 
 In addition to all the wonderful features native to Skeleton, `SCSSkeleton` offers:
@@ -18,7 +19,7 @@ In addition to all the wonderful features native to Skeleton, `SCSSkeleton` offe
 
 `SCSSkeleton` uses the excellent css3 mixins built into Compass to fill in vendor prefixes for css3 attributes, providing single-point-of-change and making sure your syntax is up to date.
 
-### Complete Skeleton Equivalancy
+### Complete Skeleton Equivalency
 
 `SCSSkeleton` compiles equivalently to Skeleton so no rewriting of your site styles is required if you're using the original stylesheets.  The only addition to the code base is an optional "Wide" grid which is commented out by default.  `SCSSkeleton` simply saves time and allows you to more easily make your own changes to Skeleton, it does not alter the function of the framework on its own.
 
