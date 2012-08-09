@@ -147,34 +147,42 @@
 /* #Media Queries
 ================================================== */
 .container { 
-    width: $sk_base_container;
-    .column,.columns { 
-        float: left; 
-        display: inline; 
-        &.alpha { margin-left: 0; }
-        &.omega { margin-right: 0; }
-        @include skeleton($sk_base_column, $sk_base_gutter);
-    }
+  width: $sk_base_container;
+  @media #{$media-tablet} { 
+      width: $sk_tablet_container;
+  }
+  @media #{$media-phoneLand} { 
+      width: $sk_phoneLand_container; 
+  }
+  @media #{$media-phonePort} { 
+      width: $sk_phonePort_container;
+  }
+/* Optional Wide-Width Grid */
+/*  @media #{$media-wide} { 
+      width: $sk_wide_container; 
+      max-width: $sk_wide_maxwidth;
+  }*/
+}
+
+.column,.columns { 
+    float: left; 
+    display: inline; 
+    &.alpha { margin-left: 0; }
+    &.omega { margin-right: 0; }
+    @include skeleton($sk_base_column, $sk_base_gutter);
     @media #{$media-tablet} { 
-        width: $sk_tablet_container; 
-        .column,.columns { @include skeleton($sk_tablet_column, $sk_tablet_gutter); }
+        @include skeleton($sk_tablet_column, $sk_tablet_gutter);
     }
     @media #{$media-phoneLand} { 
-        width: $sk_phoneLand_container; 
-        .column,.columns { @include phone-skeleton($sk_phoneLand_container); }
+        @include phone-skeleton($sk_phoneLand_container);
     }
     @media #{$media-phonePort} { 
-        width: $sk_phonePort_container; 
-        .column,.columns { @include phone-skeleton($sk_phonePort_container); }
+        @include phone-skeleton($sk_phonePort_container);
     }
-
 /* Optional Wide-Width Grid */
 /*    @media #{$media-wide} { 
-        width: $sk_wide_container;
-        max-width: $sk_wide_maxwidth;
-        .column,.columns { @include skeleton($sk_wide_column, $sk_wide_gutter); }
+        @include skeleton($sk_wide_column, $sk_wide_gutter);
     }*/
-
 }
 
 
