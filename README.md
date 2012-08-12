@@ -13,7 +13,7 @@ In addition to all the wonderful features native to Skeleton, `SCSSkeleton` offe
 
 ### Shorthand Media Queries
 
-`SCSSkeleton` provides shorthand variables for all media queries, allowing you to use, for instance, `@media #{$media-base} {}` instead of writing out `@media screen and (min-width: 960px)` each time.  More importantly, all media queries of a given type will automatically reflect changes you make.
+`SCSSkeleton` provides mixins for all media queries, allowing you to use, for instance, `@include media-base {` instead of writing out `@media screen and (min-width: 960px) {` each time.  More importantly, all media queries of a given type will automatically reflect changes you make.
 
 ### Integrated Compass Mixins
 

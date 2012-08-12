@@ -30,19 +30,19 @@
 ================================================== */
 
 	/* Smaller than standard 960 (devices and browsers) */
-	@media #{$media-subbase} {}
+	@include media-subbase {}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media #{$media-tablet} {}
+	@include media-tablet {}
 
 	/* All Mobile Sizes (devices and browser) */
-	@media #{$media-phones} {}
+	@include media-phones {}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@media #{$media-phoneLand} {}
+	@include media-phoneLand {}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media #{$media-phonePort} {}
+	@include media-phonePort {}
 
 
 /* #Font-Face

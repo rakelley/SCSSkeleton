@@ -94,7 +94,8 @@
  * @param smurf_container             container width for smurf ruleset, should be equal to column * 16 + gutter * 16
  * @param smurf_column      optional  column width for smurf ruleset (if unset, must use phone-grid in _skeleton.scss)
  * @param smurf_gutter      optional  gutter width for smurf ruleset (if unset, must use phone-grid in _skeleton.scss)
- * @param media-smurf                 used when calling smurf ruleset with a media query, usage @media #{$media-smurf} { css }
+ * 
+ * @mixin media-smurf                 used when calling smurf ruleset with a media query, usage @include media-smurf { css }
  * 
  */
 
@@ -103,7 +104,7 @@
   $sk_base_container: $sk_base;
   $sk_base_column: 40px;
   $sk_base_gutter: 20px;
-  $media-base: "screen and (min-width: #{$sk_base})";
+  @mixin media-base { @media screen and (min-width: #{$sk_base}) { @content; } }
 
 /* Portrait Tablet Grid */
   $sk_tablet: 768px;
@@ -111,23 +112,23 @@
   $sk_tablet_container: $sk_tablet;
   $sk_tablet_column: 28px;
   $sk_tablet_gutter: 20px;
-  $media-tablet: "screen and (min-width: #{$sk_tablet}) and (max-width: #{$sk_tablet_max})";
+  @mixin media-tablet { @media screen and (min-width: #{$sk_tablet}) and (max-width: #{$sk_tablet_max}) { @content; } }
 
 /* Landscape Phone Grid */
   $sk_phoneLand: 480px;
   $sk_phoneLand_max: $sk_tablet - 1;
   $sk_phoneLand_container: $sk_phoneLand - 60;
-  $media-phoneLand: "screen and (min-width: #{$sk_phoneLand}) and (max-width: #{$sk_phoneLand_max})";
+  @mixin media-phoneLand { @media screen and (min-width: #{$sk_phoneLand}) and (max-width: #{$sk_phoneLand_max}) { @content; } }
 
 /* Portrait Phone Grid */
   $sk_phonePort: $sk_phoneLand - 1;
   $sk_phonePort_container: $sk_phonePort - 179;
-  $media-phonePort: "screen and (max-width: #{$sk_phonePort})";
+  @mixin media-phonePort { @media screen and (max-width: #{$sk_phonePort}) { @content; } }
 
 /* Additional Media Query Shorthand Variables */
-  $media-nophones: "screen and (min-width: #{$sk_tablet})";
-  $media-phones: "screen and (max-width: #{$sk_phoneLand_max})";
-  $media-subbase: "screen and (max-width: #{$sk_tablet_max})";
+  @mixin media-nophones { @media screen and (min-width: #{$sk_tablet}) { @content; } }
+  @mixin media-phones { @media screen and (max-width: #{$sk_phoneLand_max}) { @content; } }
+  @mixin media-subbase { @media screen and (max-width: #{$sk_tablet_max}) { @content; } }
 
 /* Optional Wide Grid
  *
@@ -136,32 +137,32 @@
  * 
  * @param sk_wide_maxwidth            max width the container will expand to
  */
-/*  $sk_wide: 1333px;
-  $sk_wide_container: 90%;
-  $sk_wide_column: 4.25%;
-  $sk_wide_gutter: 2%;
-  $sk_wide_maxwidth: 1680px;
-  $media-wide: "screen and (min-width: #{$sk_wide})";*/
-
+//  $sk_wide: 1333px;
+//  $sk_wide_container: 90%;
+//  $sk_wide_column: 4.25%;
+//  $sk_wide_gutter: 2%;
+//  $sk_wide_maxwidth: 1680px;
+//  @mixin media-wide { @media screen and (min-width: #{$sk_wide}) { @content; } }
+ 
 
 /* #Media Queries
 ================================================== */
 .container { 
   width: $sk_base_container;
-  @media #{$media-tablet} { 
+  @include media-tablet { 
       width: $sk_tablet_container;
   }
-  @media #{$media-phoneLand} { 
+  @include media-phoneLand { 
       width: $sk_phoneLand_container; 
   }
-  @media #{$media-phonePort} { 
+  @include media-phonePort { 
       width: $sk_phonePort_container;
   }
 /* Optional Wide-Width Grid */
-/*  @media #{$media-wide} { 
-      width: $sk_wide_container; 
-      max-width: $sk_wide_maxwidth;
-  }*/
+//  @include media-wide { 
+//      width: $sk_wide_container; 
+//      max-width: $sk_wide_maxwidth;
+//  }
 }
 
 .column,.columns { 
@@ -170,19 +171,19 @@
     &.alpha { margin-left: 0; }
     &.omega { margin-right: 0; }
     @include skeleton($sk_base_column, $sk_base_gutter);
-    @media #{$media-tablet} { 
+    @include media-tablet { 
         @include skeleton($sk_tablet_column, $sk_tablet_gutter);
     }
-    @media #{$media-phoneLand} { 
+    @include media-phoneLand { 
         @include phone-skeleton($sk_phoneLand_container);
     }
-    @media #{$media-phonePort} { 
+    @include media-phonePort { 
         @include phone-skeleton($sk_phonePort_container);
     }
 /* Optional Wide-Width Grid */
-/*    @media #{$media-wide} { 
-        @include skeleton($sk_wide_column, $sk_wide_gutter);
-    }*/
+//    @include media-wide { 
+//        @include skeleton($sk_wide_column, $sk_wide_gutter);
+//    }
 }
 
 
