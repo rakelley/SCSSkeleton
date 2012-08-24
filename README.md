@@ -28,4 +28,4 @@ In addition to all the wonderful features native to Skeleton, `SCSSkeleton` offe
 
 * Ruby http://www.ruby-lang.org/en/downloads/
 * Compass http://compass-style.org/
-* SASS 3.2.0 alpha is required for variable support in media queries, use `gem install sass --pre` (you may need to uninstall previous sass versions first) http://sass-lang.com/
+* SASS 3.2.0 or later http://sass-lang.com/
