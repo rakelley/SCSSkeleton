@@ -1,6 +1,8 @@
-# SCSSkeleton
+# SCSSkeleton - DEPRECATED
 
-`SCSSkeleton` is a SCSS rewrite of the Skeleton fluid grid CSS framework - www.getskeleton.com
+`SCSSkeleton` was a SCSS rewrite of the 1.0 version of the Skeleton fluid grid CSS framework - www.getskeleton.com
+
+Some time ago, version 2.0 of Skeleton was released, an excellent major rewrite that was significantly streamlined and renders this project unnecessary in my opinion.  It is now considered deprecated.
 
 
 ## Features
